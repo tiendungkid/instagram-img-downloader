@@ -1,7 +1,18 @@
 # instagram-imgages-downloader
 Download images instargram auto and smart !
-# v1.0:
-  1. Chỉnh sửa url trang cá nhân instagram trong file index.js
-  2. Get toàn bộ ảnh trong trang cá nhân của người dùng
-  3. Chỉ lấy được ảnh vuông, video chỉ lấy ảnh temp
-  4. Lưu backup link của ảnh trong /result/response.json
+## Chức năng:
+  - Tải toàn bộ ảnh trong trang cá nhân người dùng(Images only)
+  - Backup dữ liệu link ảnh trong response.json
+  - Chỉ tải được ảnh từ các trang công khai(public)
+## Bases: NodeJS
+  - pupperteer
+  - fs
+  - images-downloader
+  - Chrome core
+## Sử dụng:
+  - Sửa url file index.js url muốn lấy
+  - Mở terminartor / Comand Prompt cd tới project
+  - Chạy lệnh node index
+  - Chờ đợi và nhận kết quả trong thư mục result.
+## Author: Tiendungkid(GITHUB)
+## Thank for read !
