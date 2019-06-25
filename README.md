@@ -1,4 +1,4 @@
-# instagram-imgages-downloader
+# instagram-images-downloader
 Download images instargram auto and smart !
 ## Chức năng:
   - Tải toàn bộ ảnh trong trang cá nhân người dùng(Images only)
