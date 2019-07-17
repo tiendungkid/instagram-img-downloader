@@ -1,30 +1,49 @@
 const req = require('request');
 const fs = require("fs");
-const express = require('express');
-const app = express();
 const pathLinks = "./result/response.json";
-const bodyParser = require('body-parser')
-const download = require('images-downloader').images;
-const header = {'content-type' : 'application/x-www-form-urlencoded'};
-const url = "http://tiendungkid2.000webhostapp.com/provided/";
-const method = "POST";
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const url = "http://localhost/GIT-PHP/tiendungkid2/provided/instagram-crawler/";
 let option = {
-    headers: 'Request-Promise',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+    },
     url: url,
-    method: method,
+    method: "POST",
     form: {
-        url:"/p/Bjy3rABAuHZ/"
+        url: null
     },
     json: true
 };
-/**
- * Run
- */
-(async()=>{
-    await req.post(option,(err, res,body)=>{
-        if(err) console.log(err);
-        else console.log(JSON.parse(res));
-    })
-})()
+(async () => {
+    try {
+        let links, linkFullSize = [];
+        let getLink = (option) => {
+            return new Promise((resolve, reject) => {
+                req(option, (err, res, body) => {
+                    if (err) return reject(err);
+                    try {
+                        resolve(body.url);
+                    } catch (error) {
+                        reject(error);
+                    }
+                })
+            })
+        }
+        links = JSON.parse(fs.readFileSync(pathLinks, "utf8"));
+        await links.map(
+            (link, index) => {
+                option.form.url = link;
+                getLink(option)
+                    .then(res => {
+                        linkFullSize.push(res);
+                        if (linkFullSize.length == links.length) {
+                            fs.writeFileSync(pathLinks, JSON.stringify(linkFullSize), "utf8");
+                            console.log('Get images link success !');
+                        }
+                    }).catch(err => {
+                        console.log(err);
+                    });
+            });
+    } catch (e) {
+        console.log('Has been error \n', e);
+    }
+})();
