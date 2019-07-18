@@ -9,7 +9,7 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 const option = {
-  headless: true,
+  headless: false,
   defaultViewport: false,
   executablePath: "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
   args: ['--no-sandbox', '--disable-setuid-sandbox']
