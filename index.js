@@ -17,7 +17,7 @@ const option = {
 const timeout = {
   timeout: 3000
 }
-const url = "https://www.instagram.com/tiendungkid/";
+const url = "https://www.instagram.com/linhyasha/";
 /**
  * @param noparams
  * @author tiendungkid
@@ -112,15 +112,19 @@ const extractLinkImages2 = async () => {
   }
   (async () => {
     console.log('\n');
-    console.log('Step 1: node index');
-    console.log('Step 2: Chooser mode');
+    console.log('Step 1: Change your instagram link (in file index.js)');
+    console.log('Step 2: If you install chrome in a different directory than the default directory, change the path to chrome.exe file (executablePath in file index.js)');
+    console.log('Step 3: Run terminal and enter: node index');
+    console.log('Step 4: Enter mode');
     console.log('\t 1: Get links square images');
     console.log('\t 2: Get links full size images');
-    console.log('Step 3:');
-    console.log('\t IF MODE 1 RUN - node download-images');
-    console.log('\t IF MODE 2 RUN - node get-request - and wait');
-    console.log('\t IN MODE 2 WHEN SUCCESS RUN - node download-images');
+    console.log('Step 5:');
+    console.log('\t IF MODE 1 RUN: node download-images');
+    console.log('\t IF MODE 2 RUN: node get-request');
+    console.log('\t IN MODE 2 WHEN SUCCESS RUN: node download-images');
+    console.log('--> Result in folder result (Images + link of images)');
     console.log('--------------------------------------');
+    console.log('Choose Mode: ');
     readline.question(`Square type 1 | Full size type 2: \n`, (number) => {
       if (number === undefined || number === "" || number == null) {
         console.log("1 OR 2 !");

@@ -12,11 +12,11 @@ Download images instargram auto and smart !
 ## Sử dụng - How to use:
   - Step 1: Change your instagram link (in file index.js)
   - Step 2: If you install chrome in a different directory than the default directory, change the path to chrome.exe file (executablePath in file index.js)
-  - Step 2: Run terminal and enter: node index
-  - Step 3: Enter mode
+  - Step 3: Run terminal and enter: node index
+  - Step 4: Enter mode
     + 1: Get links square images
     + 2: Get links full size images
-  - Step 3:
+  - Step 5:
     + IF MODE 1 RUN: node download-images
     + IF MODE 2 RUN: node get-request
     + IN MODE 2 WHEN SUCCESS RUN: node download-images
