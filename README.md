@@ -1,15 +1,16 @@
-# instagram-images-downloader
+# Instagram-images-downloader
 Download images instargram auto and smart !
-## Chức năng:
-  - Tải toàn bộ ảnh trong trang cá nhân người dùng(Images only)
-  - Backup dữ liệu link ảnh trong response.json
-  - Chỉ tải được ảnh từ các trang công khai(public)
-## Bases: NodeJS
+## Chức năng - :
+  - Download all images of a personal page(Images only)
+  - Backup images links in result/response.json
+  - Public user only
+## Base: NodeJS + PHP
   - pupperteer
   - fs
   - images-downloader
   - Chrome core
 ## Sử dụng - How to use:
+  ! If you have not installed nodejs environment, please refer and download here: https://nodejs.org
   - Step 1: Change your instagram link (in file index.js)
   - Step 2: If you install chrome in a different directory than the default directory, change the path to chrome.exe file (executablePath in file index.js)
   - Step 3: Run terminal and enter: node index

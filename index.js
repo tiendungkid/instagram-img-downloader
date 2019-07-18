@@ -17,6 +17,7 @@ const option = {
 const timeout = {
   timeout: 3000
 }
+// const url = "https://www.instagram.com/tiendungkid/";
 const url = "https://www.instagram.com/linhyasha/";
 /**
  * @param noparams
