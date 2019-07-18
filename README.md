@@ -9,10 +9,15 @@ Download images instargram auto and smart !
   - fs
   - images-downloader
   - Chrome core
-## Sử dụng:
-  - Sửa url file index.js url muốn lấy
-  - Mở terminartor / Comand Prompt cd tới project
-  - Chạy lệnh node index
-  - Chờ đợi và nhận kết quả trong thư mục result.
+## Sử dụng - How to use:
+  - Step 1: Run terminal: node index
+  - Step 2: Enter mode
+    + 1: Get links square images
+    + 2: Get links full size images
+  - Step 3:
+    + IF MODE 1 RUN: node download-images
+    + IF MODE 2 RUN: node get-request
+    + IN MODE 2 WHEN SUCCESS RUN: node download-images
+--> Result in folder result (Images + link of images)
 ## Author: Tiendungkid(GITHUB)
 ## Thank for read !
