@@ -1,25 +1,30 @@
+/**
+ * [Setup]
+ * @description Setup and config
+ */
 const fs = require('fs');
 const puppeteer = require('puppeteer-core');
-const download = require('images-downloader').images;
 const resultFile = "./result/response.json";
-const resultFolder = "./result";
-const rq = require('request');
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
 });
+const timeout = {
+  timeout: 3000
+};
+/**
+ * [Run]
+ * @description Change path and link
+ */
+const url = "https://www.instagram.com/tiendungkid/";
 const option = {
   headless: false,
   defaultViewport: false,
   executablePath: "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
   args: ['--no-sandbox', '--disable-setuid-sandbox']
-}
-const timeout = {
-  timeout: 3000
-}
-// const url = "https://www.instagram.com/tiendungkid/";
-const url = "https://www.instagram.com/linhyasha/";
+};
 /**
+ * [Start] [Mode-1]
  * @param noparams
  * @author tiendungkid
  * @description get square images
@@ -66,6 +71,7 @@ const extractItems = async () => {
   return items;
 }
 /**
+ * [Start] [Mode-2]
  * @param noparams
  * @author tiendungkid
  * @description get all link images to get full width of images
@@ -107,46 +113,50 @@ async function scrapeInfiniteScrollItems2(page, extractLinkImages, scrollDelay =
   return items;
 }
 const extractLinkImages2 = async () => {
-    const extractedElements = Array.from(document.querySelectorAll('article a'));
-    const items = extractedElements.map(i => i.getAttribute("href"));
-    return items;
-  }
-  (async () => {
-    console.log('\n');
-    console.log('Step 1: Change your instagram link (in file index.js)');
-    console.log('Step 2: If you install chrome in a different directory than the default directory, change the path to chrome.exe file (executablePath in file index.js)');
-    console.log('Step 3: Run terminal and enter: node index');
-    console.log('Step 4: Enter mode');
-    console.log('\t 1: Get links square images');
-    console.log('\t 2: Get links full size images');
-    console.log('Step 5:');
-    console.log('\t IF MODE 1 RUN: node download-images');
-    console.log('\t IF MODE 2 RUN: node get-request');
-    console.log('\t IN MODE 2 WHEN SUCCESS RUN: node download-images');
-    console.log('--> Result in folder result (Images + link of images)');
-    console.log('--------------------------------------');
-    console.log('Choose Mode: ');
-    readline.question(`Square type 1 | Full size type 2: \n`, (number) => {
-      if (number === undefined || number === "" || number == null) {
-        console.log("1 OR 2 !");
+  const extractedElements = Array.from(document.querySelectorAll('article a'));
+  const items = extractedElements.map(i => i.getAttribute("href"));
+  return items;
+};
+/**
+ * [Run]
+ * @description Run project and hint !
+ */
+(async () => {
+  console.log('\n');
+  console.log('Step 1: Change your instagram link (in file index.js)');
+  console.log('Step 2: If you install chrome in a different directory than the default directory, change the path to chrome.exe file (executablePath in file index.js)');
+  console.log('Step 3: Run terminal and enter: node index');
+  console.log('Step 4: Enter mode');
+  console.log('\t 1: Get links square images');
+  console.log('\t 2: Get links full size images');
+  console.log('Step 5:');
+  console.log('\t IF MODE 1 RUN: node download-images');
+  console.log('\t IF MODE 2 RUN: node get-request');
+  console.log('\t IN MODE 2 WHEN SUCCESS RUN: node download-images');
+  console.log('--> Result in folder result (Images + link of images)');
+  console.log('--------------------------------------');
+  console.log('Choose Mode: ');
+  readline.question(`Square type 1 | Full size type 2: \n`, (number) => {
+    if (number === undefined || number === "" || number == null) {
+      console.log("1 OR 2 !");
+      readline.close();
+    } else {
+      let mode = parseInt(number);
+      if (typeof mode !== 'number' || isNaN(mode)) {
+        console.log("1 OR 2 please !");
         readline.close();
+      } else if (mode > 2 || mode < 1) {
+        console.log('1 OR 2 please !');
       } else {
-        let mode = parseInt(number);
-        if (typeof mode !== 'number' || isNaN(mode)) {
-          console.log("1 OR 2 please !");
-          readline.close();
-        } else if (mode > 2 || mode < 1) {
-          console.log('1 OR 2 please !');
-        } else {
-          if (mode === 1) {
-            square();
-            readline.close()
-          }
-          if (mode === 2) {
-            fullszie();
-            readline.close()
-          }
+        if (mode === 1) {
+          square();
+          readline.close()
+        }
+        if (mode === 2) {
+          fullszie();
+          readline.close()
         }
       }
-    });
-  })();
+    }
+  });
+})();

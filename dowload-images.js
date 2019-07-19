@@ -1,23 +1,44 @@
 const fs = require("fs");
-const download = require('images-downloader').images;
+const download = require('image-downloader')
 const resultFolder = "./result";
 const source = "./result/response.json";
 (async () => {
-    let links, ImgFailed = 0,
+    let links, totalLink;
+    let ImgFailed = 0,
         Imgsuccess = 0;
+    let options = {
+        url: null,
+        dest: resultFolder
+    };
+    let readLinkImages = async () => {
+        return JSON.parse(fs.readFileSync(source, "utf8"));
+    };
     try {
-        links = JSON.parse(fs.readFileSync(source, "utf8"));
-        await download(links, resultFolder).then(result => {
-            result.map(i => {
-                if (i.status == "downloaded") Imgsuccess++;
-                else ImgFailed++;
-            })
-        }).catch(error => ImgFailed++);
-        console.log("Imgages Success: " + Imgsuccess);
-        console.log("Imgages Failed: " + ImgFailed);
-        console.log("Tatal Images: ", links.length);
+        links = await readLinkImages();
+        totalLink = links.length;
+        let getStatus = (stt) => {
+            if (stt) {
+                Imgsuccess++;
+            } else {
+                ImgFailed++;
+            }
+            if (Imgsuccess + ImgFailed == totalLink) {
+                console.log("Tatal Images: ", totalLink);
+                console.log("Imgages Success: " + Imgsuccess);
+                console.log("Imgages Failed: " + ImgFailed);
+            }
+        };
+        links.map(link => {
+            options.url = link;
+            download.image(options)
+                .then(() => {
+                    getStatus(true);
+                })
+                .catch(() => {
+                    getStatus(false);
+                })
+        });
     } catch (e) {
-        console.log('Error to download images !');
-        console.log(e);
+        console.log('Error to download images. Please Check !');
     }
 })();
