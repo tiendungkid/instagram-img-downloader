@@ -1,8 +1,8 @@
 # Instagram-images-downloader
 
 Download images instargram auto and smart !
-![alt text](https://raw.githubusercontent.com/tiendungkid/instagram-images-downloader/instagram.png)
-
+![alt text](https://raw.githubusercontent.com/tiendungkid/instagram-images-downloader/master/instagram.png)
+Tutorial video: https://tiendungkid.com/isdownloader
 ## Chức năng - Function:
 
 - Download all images of a personal page(Images only)
