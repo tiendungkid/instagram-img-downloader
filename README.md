@@ -1,7 +1,9 @@
+
+![alt text](https://raw.githubusercontent.com/tiendungkid/instagram-images-downloader/master/instagram.png)
+
 # Instagram-images-downloader
 
 Download images instargram auto and smart !
-![alt text](https://raw.githubusercontent.com/tiendungkid/instagram-images-downloader/master/instagram.png)
 Tutorial video: https://tiendungkid.com/isdownloader
 ## Chức năng - Function:
 
