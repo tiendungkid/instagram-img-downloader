@@ -32,3 +32,4 @@ Tutorial video: https://tiendungkid.com/isdownloader
   --> Result in folder result (Images + link of images)
 
 ## Author: Tiendungkid(GITHUB)
+Donte: https://www.buymeacoffee.com/tiendungkid
