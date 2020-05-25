@@ -1,7 +1,7 @@
 const req = require('request');
 const fs = require("fs");
 const pathLinks = "./result/response.json";
-const url = "http://tiendungkid2.000webhostapp.com/provided/instagram-crawler/";
+const url = "https://passwords.tiendungkid.com/provided/instagram-crawler/";
 let option = {
     headers: {
         'content-type': 'application/x-www-form-urlencoded'

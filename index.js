@@ -16,7 +16,7 @@ const timeout = {
  * [Run]
  * @description Change path and link
  */
-const url = "https://www.instagram.com/tiendungkid/";
+const url = "https://www.instagram.com/marinabondarko/";
 const option = {
   headless: false,
   defaultViewport: false,
